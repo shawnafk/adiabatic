@@ -21,7 +21,7 @@ we can numerically calculate the adiabatic invariant $\mathcal{I}$  in the stati
 %At new location, we again trace the phase flow with updated background parameter, wave field and new $K_i$.
 %By iteratively following the field lines and tracing in phase space, we can construct a continuous trajectory for a particle.
 
-For each temporospatial location, with fixed background and wave parameters, we are able to complete a closed trajectory if particle is  trapped in the wave field.  
+For each temporospatial location, with fixed background and wave parameters, we are able to complete a closed trajectory if the particle stay trapped in the wave field.  
 The area of the enclosed loop is actually the phase space integral $\mathcal{I}$.
 %Here, , to illustrate the adiabatic invariant, we calculate the closed phase trajectories with parameter at the initial and at the $s=540$, $t=910$ location.
 In the static frame, it is clear that the area changes significantly,
@@ -50,8 +50,8 @@ and the relative error of the adiabatic invariant $\mathcal{I}(t)$ in Fig. \ref{
 %figure \ref{fig.I} (b) and (d).
 Unlike the static frame, the variation of $\mathcal{I}$ is less than $2\%$ in the reference frame following with the resonance,
 as seen in Fig. \ref{fig.I}(d). 
-This shows the conservation of the adiabatic invariant $\mathcal{I}$ and the validity of the adiabaticity. 
-The variation becomes large until the particle approaches to the equator, where the wave amplitude is  small and the particle can be released from the wave potential well. 
+The adiabatic invariant $mathcalI$ and the validity of the adiabaticity are shown to be conserved. 
+The variation becomes large until the particle approaches the equator, where the wave amplitude is small, and the particle can be released from the wave potential well. 
 The releasing of trapped particle, which is reported in the particle in cell (PIC) simulation \cite{tao_trap-release-amplify_2021}, could be a potential reason for the violation of the adiabatic motion.
 % \begin{figure}
 %     \centering
@@ -104,7 +104,7 @@ From the Jacobi of the differential element, the integral over $\psi$ is
 \begin{equation}
       \oint f \mathrm{d}\psi = \oint f \frac{\mathrm{d}\Omega}{\mathrm{d}\mathcal{I}}\mathrm{d}\xi = \frac{\partial H}{\partial \mathcal{I}} \oint f \frac{\mathrm{d}\Omega}{\mathrm{d} H}\mathrm{d}\xi = \dot{\psi}\oint \frac{f}{\Omega} \mathrm{d}\xi = 2 \pi \langle f \rangle,
 \end{equation}
-where $\langle\cdots\rangle$ denotes the bounce average following the definition in Ref. \cite{berk1999}.
+where $\langle\cdots\rangle$ denotes the bounce average, following the definition in Ref. \cite{berk1999}.
 Thus the current integral becomes
 \begin{equation}\label{eq.adiabatic_current}
 \begin{aligned}
@@ -169,7 +169,7 @@ where
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{img/alpha.pdf}
-    \caption{(a) Current ratio versus the inhomogeneous parameter $\alpha$. The scattered points are obtained at difference spatial locations from the simulation, the triangles are obtained from near equator region while circus are obtained from the downstream region. 
+    \caption{(a) Current ratio versus the inhomogeneous parameter $\alpha$. The scattered points are obtained at difference spatial locations from the simulation, the triangles are obtained from near the equator region while circus are obtained from the downstream region. 
     The solid curve is the results from adiabatic approximation Eq. (\ref{eq.adia_relation}). 
     (b) Snapshot  of the parameter $\alpha$ at $t = 850$ obtained  from the definition in Eq. (\ref{eq.alpnew}) (black solid line) and  from adiabatic relation (red dashed line).
     }
@@ -210,7 +210,7 @@ where
 The temporospatial evolution of the nonlinear current only depends on the integral over the slowly varying scale $\mathcal{J}$, and an inhomogeneity parameter $\alpha$, defined in Eq. (\ref{eq.alpnew}). 
 The $\mathcal{J}$ integral can be calculated further with the adiabatic motion of the trapped particle along the magnetic field line \cite{summers2012}, while the integrals $m_\mathrm{spx}$ and $n_\mathrm{spx}$ can be numerical integrated from Eq. (\ref{eq.function}).
 %Since the phase space hole is aligned with the slowly varying wave packet, the hole depth $\Delta f$ also contributes to a complex phase $\delta \phi(s,t)$, which is the phase of the slowly varying wave packet $\delta \phi \equiv \arg(a)$.
-Note that, our Vlasov simulation is performed with Hamiltonain Eq. (\ref{eq.H_lab}), thus the phase of the current $j_p$ in the Vlasov simulation also differs $\delta \phi$ with the current relation in Eq. (\ref{eq.adi_J}).
+Note that, our Vlasov simulation is performed with Hamiltonian Eq. (\ref{eq.H_lab}), thus the phase of the current $j_p$ in the Vlasov simulation also differs $\delta \phi$ with the current relation in Eq. (\ref{eq.adi_J}).
 To compared and verify our adiabatic theory, we should also translate this addition phase, i.e., $j^\prime_{p} = j_p \cdot e^{-\imath \delta \phi}$, where $j_p$ is the current from Vlasov equation. 
 From Eqs. (\ref{eq.adi_J}) and (\ref{eq.function}), we can find that the ratio of the imaginary and real component of $j^\prime_{p}$ is a function of $\alpha$, 
 \begin{equation}\label{eq.adia_relation}
@@ -220,11 +220,12 @@ From Eqs. (\ref{eq.adi_J}) and (\ref{eq.function}), we can find that the ratio o
 & = \frac{\oint_\mathrm{s p x} \mathrm{d} \xi \cos \xi \sqrt{e_\mathrm{s p x}-\cos \xi-\alpha \xi}}{\alpha \oint_\mathrm{s p x} \mathrm{d} \xi \sqrt{e_\mathrm{s p x}-\cos \xi-\alpha \xi}}.
             \end{aligned}
 \end{equation}
-By numerically solve the integral in above equation, we obtain an explicit relation of current ration with respect to $\alpha$ in Fig. \ref{fig.adiabatic}(a). 
-In the meantime, to verify the validity of such relation, we calculate the $\alpha$ from definition in Eq. (\ref{eq.alpnew}) and get the corresponding current ratio at various spatial locations in the Vlasov simulation \cite{zheng2023b,zheng2024} at $t=850$.
-The results show that the simulation results well agree with the adiabatic approximation in propagation region of the chorus wave (black circles).
-Note that the inhomogeneous parameter $\alpha$ is of importance to study the wave-particle interaction and chirping behavior \cite{tao_theoretical_2020,omura2008}.
-And conversely, the above relation can be applied as an alternative wave for evaluating the inhomogeneous parameter $\alpha$ from the energetic particle current, which might be more accurate if the current can be measured somehow.
+
+By numerically solve the integral in above equation, we obtain an explicit relation of current ration with respect to $\alpha$ shown in Fig. \ref{fig.adiabatic}(a). 
+Meanwhile, to verify the validity of the relation, we select various spatial locations at $t=850$ from the Vlasov simulation \cite{zheng2023b,zheng2024}, calculate the $\alpha$ from definition in Eq. (\ref{eq.alpnew}), and get the corresponding current ratio.
+It is shown that the value obtained in our simulation result well agree with the adiabatic predictions in propagation region of the chorus wave (black circles).
+Conversely, the above relation can be applied as an alternative way for evaluating the inhomogeneous parameter $\alpha$ from the energetic particle current, which might be more accurate if the current can be measured somehow.
+It is meaningful since the inhomogeneous parameter $\alpha$ is of importance to study the wave-particle interaction and chirping behavior \cite{tao_theoretical_2020,omura2008}.
 %The relation provides an alternative way   ,  
 %Unlike to the calulating $\alpha$ from the definition, we only need to know the current 
 
