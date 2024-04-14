@@ -1,0 +1,58 @@
+\documentclass[showkeys,reprint,superscriptaddress]{revtex4-2}
+%\documentclass[showkeys,preprint]{article}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, citecolor=blue, urlcolor=blue, linkcolor=blue}
+
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\begin{document}
+\title{Adiabatic Theory of Resonant Particle Dynamics with Frequency-Chirping Chorus Waves in Inhomogeneous Magnetic Fields}
+%Does the adiabaic invariant exists during particle interacting with the frequency chirping wave?
+\author{Jiangshan Zheng}
+\affiliation{School of Physics, Beihang University, Beijing, 100191, China}
+\author{Ge Wang}
+%\affiliation{Institute for Fusion Studies, The University of Texas, Austin, Texas 78712, USA}
+\affiliation{Center for Plasma Theory and Computation, Madison, Wisconsin 53706, USA}
+\author{Bo Li}
+\affiliation{School of Physics, Beihang University, Beijing, 100191, China}
+\date{\today}
+
+\begin{abstract}
+ We present the adiabatic regime for the particles interacting with the frequency chirping waves in the inhomogeneous magnetic field. 
+%Based on our previous Hamiltonian formalism \cite{zheng2024}, we give the definition of the adiabatic invariant $\mathcal{I}$.
+ Despite the rapid change of the parameters during the interaction, we show that the adiabatic invariant is conserved as long as the particles stay trapped in the reference frame moving with the resonance.
+%as long as the particle stay trapped, i.e. the inhomogeniety parameter $\alpha < 0$
+%We further 
+Assuming the trapped particle distribution as a function of the adiabatic invariant and  the water-bag approximation, we derive an analytic form of the nonlinear current
+as a function of 
+the inhomogeneous parameter that describes the frequency chirping and inhomogeneities in the background magnetic field.
+%We also examine the nonlinear current expression from the  Vlasov hybrid simulations
+The nonlinear current expression  is also examined in the  Vlasov hybrid simulations
+and the simulation results show that  the nonlinear current can be well described by the adiabatic water bag approximation 
+except for the chirping onset stage and the source region where the adiabatic approximation is invalid.
+%in most of the simulation domain.
+%Our theory and the corresponding numerical method are able to provide high resolution in phase space with affordable computation cost, which is urgently required to reveal the underlying physics of the nonlinear frequency chirping problem.
+\end{abstract}
+\maketitle
+
+\input{pop/intro}
+
+\input{pop/theory}
+
+\input{pop/discussion}
+
+\input{pop/conclusion}
+
+\begin{acknowledgments}
+    The work was inspired by H.L.Berk during Ge Wang worked with him at the University of Texas.
+    As Herb’s former Ph.D. student and long-time collaborator, Ge witnessed Herb’s kindness, diligence, and persistence. Thank you, Herb. 
+    This work was supported by the National Natural Science Foundation of China under Grant No.~12275013.
+    The simulations were carried out at National Supercomputer Center in Tianjin and  performed on Tianhe new generation supercomputer.
+\end{acknowledgments}
+
+%\bibliographystyle{unsrt}
+\bibliography{ref.bib}
+\end{document}

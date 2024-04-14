@@ -1,0 +1,160 @@
+\section{ Hamiltonian theory}
+\label{sec:theory}
+In the previous work, the Hamiltonian for the resonant electrons in the frame of reference moving with the local resonance is derived by the canonical transformation \cite{zheng2024}.
+The wave-particle interaction is studied on discrete local spatial cells, and the phase space is described by new canonical coordinates ($\xi$, $\Omega$), 
+%\begin{equation}
+%    \begin{aligned}
+%    \xi &=  \varphi - \phi_f~,
+%    \\
+%    \Omega &= \frac{p_\parallel}{k}-\Pi~,
+%    \end{aligned}
+%\end{equation}
+%where $\Pi = (\omega - \omega_{ce})/k^2$. 
+For each cell at a position $s_i$ along the magnetic field, $\xi$, $\Omega$ phase space is decoupled in the original Hamiltonian, and in our hybrid Vlasov simulation \cite{zheng2024,zheng2023b}, the phase flow for the onset of chorus is considered separately with the following Hamiltonian
+\begin{equation}\label{eq.H_lab}
+    K = \frac{k_l^2\Omega^2}{2} + \mathcal{R}\left(\frac{\omega_b^2}{k_l^2} (e^{-\imath \xi} + \alpha \cdot \xi) \right)~,
+\end{equation}
+where $\mathcal{R}$ denotes taking the real part, 
+\begin{equation}
+    \omega_b^2 = \sqrt{2\omega_{ce}(\mathcal{J}+\Pi+\Omega)}k_l^2 a(s_i,t)
+\end{equation}
+ is the bounce frequency, and 
+\begin{equation}\label{eq.alpold}
+   \alpha  = \frac{k_l}{\omega_b^2}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds}~,
+\end{equation}
+is the inhomogeneous parameter that describes the frequency chirping and inhomogeneities in the background magnetic field.
+Other coordinates and variables such as the canonical momentum $\mathcal{J}$, gyro frequency $\omega_{ce}$, and parameter $\Pi$ are determined from on each local cell \cite{zheng2024,zheng2023b}.
+A contour plot of the Hamiltonian is given in Fig. \ref{fig.Hamcontour}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/Hamcontour.pdf}
+    \caption{The contour plot of Hamiltonian in Eq. (\ref{eq.H_lab}) using fixed $\mathcal{J}, a, \Pi$ parameters. 
+    \label{fig.Hamcontour}
+    }
+\end{figure}
+
+Note that we have fixed the reference frame on the most unstable wave with frequency $\omega_l$ and wave number $k_l$,
+which corresponds to the onset of the chirping wave.
+The reference frame we choose is determined from fixed frequency and wave number which does not change with time, thus we refer such reference frame as the static resonance frame hereafter. 
+The simulated wave vector $a$ becomes a complex number with an additional phase $\delta \phi$ due to the static frame can not exactly follow the real time resonance. Therefore we take the real part in the wave-particle interaction term in the above Hamiltonian.
+The complex wave vector field $a$ can be written as 
+\begin{equation}
+    a(s,t) = |a(s,t)| \cdot e^{\imath \delta \phi(s,t)}~,
+\end{equation}
+where $\delta \phi$ can be regarded as a modulation on the wave envelope, as shown in Fig. \ref{fig.aanda}.
+
+%\begin{equation}\label{eq.cell_j}
+%    (\omega_l - \omega_{ce})\mathcal{J} +  \frac{(\omega_l - \omega_{ce})^2}{2k_l^2} = \mathrm{Const.}
+%\end{equation}
+%Since we consider the parallel propagating wave, 
+%%the cell is aligned with the field line, and 
+%the reference frame moves according to the 
+%resonance 
+%velocity,
+%\begin{equation}\label{eq.cell_s}
+%    \frac{d s_i}{d t} = \frac{\omega_l-\omega_{ce}}{k_l}~.
+%\end{equation}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/aanda.pdf}
+    \caption{(a) Time evolution and (b) spatial distribution of the orthogonal components of vector potential, $a_x$ and $a_y$, and the amplitude $|a|$ in the simulation.
+    \label{fig.aanda}
+    }
+\end{figure}
+
+%In other word, $a$ is a complex number and so does $\omega_b$.
+
+%particle trajectory
+The varying phase $\delta \phi(s,t)$ indicates the acceleration of trapped particles along $\Omega$ momentum dimension in phase space.
+Combining the calculated wave fields  in the Vlasov simulation \cite{zheng2024}, we solve the equations of motion using the Hamiltonian in Eq. (\ref{eq.H_lab}) and show the particle phase space trajectories in Fig. \ref{fig.phaseflow}(a). 
+In the static resonance frame, trapped particles do not have a closed phase space trajectory and  their angle variable $\xi$  is shifting and matching with the wave phase $\delta \phi$ along its trajectory, as illustrated in Fig. \ref{fig.phaseflow}(b). This is in accordance with the phase locking condition \cite{tao_trap-release-amplify_2021}.
+Their momenta, as shown in Fig. \ref{fig.phaseflow}(c), are also accelerating upwards along $\Omega$ dimension due to the rising tone frequency chirping.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/phaseflow.pdf}
+    \caption{(a) Phase space trajectories of  test particles with initial angle $\xi = 5$ sampled in $\Omega \in [-0.01,0.01]$, (b) typical variation of angle coordinate $\xi$ of a test particle and the cooresponding wave phase $\delta \phi$ along its trajectory. (c) the corresponding variation of particle momentum $\Omega$ with time. The dashed line denotes Eq. (\ref{eq.ft}).
+    \label{fig.phaseflow}
+    }
+\end{figure}
+
+Since the wave phase $\delta \phi$ can be calculated from the Vlasov simulation
+ \cite{zheng2024}, we can construct a canonical transformation to shift the static resonance frame back to the real-time resonance frame of reference.
+To do so, the new angle variable and momentum  take the following forms \cite{berk1999},
+\begin{equation}
+    \begin{aligned}
+        Q &= \xi - \delta \phi(s(t),t)~,
+        \\
+        P & = \Omega - f(t)~,
+    \end{aligned}
+\end{equation}
+where $f(t)$ is a time dependent function to be determined.
+The above transformation corresponds to a type-2 generating function
+\begin{equation}
+    F_2(\xi,P,t) = (\xi - \delta \phi) \cdot P + \xi \cdot f(t)
+\end{equation}
+and the corresponding new Hamiltonian $K^\prime$ is
+\begin{equation}
+    \begin{aligned}
+        K^\prime & = K + \frac{\partial F_2}{\partial t}
+        \\
+        & = \frac{k_l^2}{2}(P+f(t))^2 + \sqrt{2\omega_{ce}(\mathcal{J}+P+f(t)+\Pi)} \cdot |a|\cos(Q) 
+        \\
+        & + ((\frac{1}{k_l}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds})  +\frac{d f(t)}{d t} )\cdot(Q + \delta \phi)  - \frac{d \delta \phi}{d t} P ~. 
+        \end{aligned}
+\end{equation}
+In addition,  the first order term with respect to $P$ 
+should be eliminated
+in the above Hamiltonian, which determines $f(t)$ as
+\begin{equation}\label{eq.ft}
+    \begin{aligned}
+    f(t) & = - \frac{1}{k_l^2} \frac{d \delta \phi}{d t}  &= \frac{\delta \omega - v_r \delta k}{k_l^2}~.
+    \end{aligned}
+\end{equation} 
+Note that the exact time derivative is evaluated along the particle trajectory, $d/dt = \partial/\partial t + v_r \partial /\partial s$ with $\delta \omega  \equiv \partial \delta \phi/\partial t$ and $\delta k  \equiv -\partial \delta \phi/\partial s$.
+We can examine that $f(t)$ is the first order variation of $\Omega(\omega,k)$ due to the chirping frequency $\delta \omega$, and the variation of wave number $\delta k$.
+The expression also agrees with the change of $\Omega$ in the test particle results shown in Fig. \ref{fig.phaseflow}(c).
+%\begin{equation}
+%    \begin{aligned}
+%    \delta \omega & \equiv \frac{\partial \delta \phi}{\partial t}~,
+%    \\
+%    \delta k & \equiv -\frac{\partial \delta \phi}{\partial s}~,
+%    \end{aligned}
+%\end{equation}
+For the derivative of $f(t)$, we only keep the term up to the first order, which gives
+\begin{equation}
+    \frac{d f(t)}{d t} \simeq \frac{1}{k_l^2}(\frac{\partial \delta \omega}{\partial t} + 2 v_r \frac{\partial \delta \omega}{\partial s} + \frac{3}{2}v_r\frac{\delta k}{k_l} \frac{d \omega_{ce}}{d s}  ).
+\end{equation}
+Finally, the new Hamiltonian takes the following form 
+\begin{equation}\label{eq.H_frame}
+    K^\prime = \frac{k_l^2 P^2}{2} + \frac{\omega_b^2}{k_l^2} (\cos Q + \alpha \cdot Q)~,
+\end{equation}
+where
+\begin{equation}
+    \omega_b^2 = \sqrt{2\omega_{ce}(\mathcal{J}+P+f(t)+\Pi)} k_l^2 |a|
+\end{equation}
+and we have a new $\alpha$
+\begin{equation}\label{eq.alpnew}
+    \begin{aligned}
+    \frac{\omega_b^2}{k_l^2}\alpha & = \frac{1}{k_l}\left(\mathcal{J} - \frac{\Pi}{2}\right) \frac{d\omega_{ce}}{ds} \\
+    & + \frac{1}{k_l^2}\left(\frac{\partial \delta \omega}{\partial t} + 2 v_r \frac{\partial \delta \omega}{\partial s} + \frac{3}{2}v_r\frac{\delta k}{k_l} \frac{d \omega_{ce}}{d s}\right)~.
+    \end{aligned}
+\end{equation}
+The additional terms compared to Eq. (\ref{eq.alpold}) first order correction related to frequency chirping and wave number variation.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/Trajectory.pdf}
+    \caption{Phase space trajectory of a test particle from $s=700$ at $t=750$ to $s=520$ at $t=930$ (a)  in the static resonance frame and (b)  in the real-time resonance frame. The red dot denotes the start point, and the green dot denotes $t=910$.
+    \label{fig.traj}
+    }
+\end{figure}
+%Using the wave data from our Vlasov simualtion, we show the contour plot both of the Hamiltonian (\ref{eq.H_lab}) and the modified Hamiltonian (\ref{eq.H_frame}) in Fig. \ref{fig.Hamcontour}. Due to the $\alpha$/$drg$ term in the Hamiltonian, the trapped region is enclosed between a saddle point  and a C point.
+Using the new Hamiltonian, we are able to consider the particle dynamics in real-time resonance frame of reference.
+To show the differences, we choose a test particle initially  at the resonance center and calculate its phase space trajectories in the different reference frames in  Fig. \ref{fig.traj}. 
+%It can be found that 
+In the static  resonance frame, the particle suffers a rapid change in $\Omega$ for each bounce in accordance with  Fig. \ref{fig.phaseflow}(a).
+In contrast, there exists only a slight change when we track the particle in the real-time resonance frame, which demonstrates the effectiveness of the canonical transformation.
+
+
