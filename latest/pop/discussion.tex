@@ -1,5 +1,5 @@
-\section{Adiabatic approximation}
-\label{sec:dis}
+%\section{Adiabatic approximation}
+%\label{sec:dis}
 %\subsection{Adiabatic invariant}
 %the adiabatic invariant 
 For the resonant electrons trapped by the slowly varying wave envelope and circling around in the phase space,  the adiabatic invariant is defined as
@@ -25,15 +25,8 @@ For each temporospatial location, with fixed background and wave parameters, we 
 The area of the enclosed loop is actually the phase space integral $\mathcal{I}$.
 %Here, , to illustrate the adiabatic invariant, we calculate the closed phase trajectories with parameter at the initial and at the $s=540$, $t=910$ location.
 In the static frame, it is clear that the area changes significantly,
-as shown in Fig. \ref{fig.area}(a). In the moving frame, the area changes much smaller, suggesting the validity of the particle adiabatic motion. 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.5]{img/area.pdf}
-    \caption{Enclosed phase space loop of a particle at different times.
-    %at given parameter $a$, $k$ $\omega_{ce}$ etc. 
-    \label{fig.area}
-    }
-\end{figure}
+as shown in Fig. \ref{fig.traj}(c). In the moving frame, the area changes much smaller, suggesting the validity of the particle adiabatic motion, as shown in Fig. \ref{fig.traj}(d). 
+
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{img/adiaI.pdf}
@@ -48,9 +41,8 @@ To quantitatively show the adiabaticity, we numerically calculate the area of th
 %in Fig. \ref{fig.I}(a) and \ref{fig.I}(c). We also show 
 and the relative error of the adiabatic invariant $\mathcal{I}(t)$ in Fig. \ref{fig.I}.
 %figure \ref{fig.I} (b) and (d).
-Unlike the static frame, the variation of $\mathcal{I}$ is less than $2\%$ in the reference frame following with the resonance,
-as seen in Fig. \ref{fig.I}(d). 
-The adiabatic invariant $mathcalI$ and the validity of the adiabaticity are shown to be conserved. 
+Unlike the static frame, the variation of $\mathcal{I}$ is less than $2\%$ in the reference frame following with the resonance, as seen in Fig. \ref{fig.I}(d). 
+The adiabatic invariant $\mathcal{I}$ and the validity of the adiabaticity are shown to be conserved. 
 The variation becomes large until the particle approaches the equator, where the wave amplitude is small, and the particle can be released from the wave potential well. 
 The releasing of trapped particle, which is reported in the particle in cell (PIC) simulation \cite{tao_trap-release-amplify_2021}, could be a potential reason for the violation of the adiabatic motion.
 % \begin{figure}
@@ -102,7 +94,11 @@ Note that $\Omega$ in the square root has been  neglected since $\Omega \simeq 0
 The differential area element $\mathrm{d}\xi\mathrm{d}\Omega$ is changed to $\mathrm{d}\mathcal{I}\mathrm{d}\psi$, where $\psi$ is the angle variable of $\mathcal{I}$.
 From the Jacobi of the differential element, the integral over $\psi$ is
 \begin{equation}
-      \oint f \mathrm{d}\psi = \oint f \frac{\mathrm{d}\Omega}{\mathrm{d}\mathcal{I}}\mathrm{d}\xi = \frac{\partial H}{\partial \mathcal{I}} \oint f \frac{\mathrm{d}\Omega}{\mathrm{d} H}\mathrm{d}\xi = \dot{\psi}\oint \frac{f}{\Omega} \mathrm{d}\xi = 2 \pi \langle f \rangle,
+    \begin{aligned}
+      \oint f \mathrm{d}\psi & = \oint f \frac{\mathrm{d}\Omega}{\mathrm{d}\mathcal{I}}\mathrm{d}\xi = \frac{\partial H}{\partial \mathcal{I}} \oint f \frac{\mathrm{d}\Omega}{\mathrm{d} H}\mathrm{d}\xi = \dot{\psi}\oint \frac{f}{\Omega} \mathrm{d}\xi
+      \\
+      &\equiv 2 \pi \langle f \rangle,
+    \end{aligned}
 \end{equation}
 where $\langle\cdots\rangle$ denotes the bounce average, following the definition in Ref. \cite{berk1999}.
 Thus the current integral becomes
@@ -214,14 +210,10 @@ Note that, our Vlasov simulation is performed with Hamiltonian Eq. (\ref{eq.H_la
 To compared and verify our adiabatic theory, we should also translate this addition phase, i.e., $j^\prime_{p} = j_p \cdot e^{-\imath \delta \phi}$, where $j_p$ is the current from Vlasov equation. 
 From Eqs. (\ref{eq.adi_J}) and (\ref{eq.function}), we can find that the ratio of the imaginary and real component of $j^\prime_{p}$ is a function of $\alpha$, 
 \begin{equation}\label{eq.adia_relation}
-    \begin{aligned}
-\frac{j_x}{j_y} &= \frac{\mathrm{real}(j^\prime_p)}{\mathrm{imag}(j^\prime_p)} = \frac{m_\mathrm{spx}}{n_\mathrm{spx}}
-\\
-& = \frac{\oint_\mathrm{s p x} \mathrm{d} \xi \cos \xi \sqrt{e_\mathrm{s p x}-\cos \xi-\alpha \xi}}{\alpha \oint_\mathrm{s p x} \mathrm{d} \xi \sqrt{e_\mathrm{s p x}-\cos \xi-\alpha \xi}}.
-            \end{aligned}
+\frac{j_x}{j_y} = \frac{\mathrm{real}(j^\prime_p)}{\mathrm{imag}(j^\prime_p)} = \frac{m_\mathrm{spx}(\alpha)}{n_\mathrm{spx}(\alpha)}
 \end{equation}
 
-By numerically solve the integral in above equation, we obtain an explicit relation of current ration with respect to $\alpha$ shown in Fig. \ref{fig.adiabatic}(a). 
+By numerically solve the integral in Eq. (\ref{eq.function}), we obtain an explicit relation of current ration with respect to $\alpha$ shown in Fig. \ref{fig.adiabatic}(a). 
 Meanwhile, to verify the validity of the relation, we select various spatial locations at $t=850$ from the Vlasov simulation \cite{zheng2023b,zheng2024}, calculate the $\alpha$ from definition in Eq. (\ref{eq.alpnew}), and get the corresponding current ratio.
 It is shown that the value obtained in our simulation result well agree with the adiabatic predictions in propagation region of the chorus wave (black circles).
 Conversely, the above relation can be applied as an alternative way for evaluating the inhomogeneous parameter $\alpha$ from the energetic particle current, which might be more accurate if the current can be measured somehow.
