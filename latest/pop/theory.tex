@@ -1,32 +1,20 @@
 %\section{ Hamiltonian theory}
 %\label{sec:theory}
-In the previous work, the Hamiltonian for the resonant electrons in the frame of reference moving with the local resonance is derived by the canonical transformation \cite{zheng2024}.
-The wave-particle interaction is studied on discrete local spatial cells, and the phase space is described by new canonical coordinates ($\xi$, $\Omega$), 
-%\begin{equation}
-%    \begin{aligned}
-%    \xi &=  \varphi - \phi_f~,
-%    \\
-%    \Omega &= \frac{p_\parallel}{k}-\Pi~,
-%    \end{aligned}
-%\end{equation}
-%where $\Pi = (\omega - \omega_{ce})/k^2$. 
-For each cell at a position $s_i$ along the magnetic field, $\xi$, $\Omega$ phase space is decoupled in the original Hamiltonian, and in our hybrid Vlasov simulation \cite{zheng2024,zheng2023b}, the phase flow for the onset of chorus is considered separately with the following Hamiltonian
+The Hamiltonian for resonant electrons in the frame of reference moving with the local resonance is obtained through canonical transformation \cite{zheng2024}. We analyze the wave-particle interaction on discrete local spatial cells, with phase space characterized by new canonical coordinates $(\xi$, $\Omega)$. In the original Hamiltonian, $\xi$, $\Omega$ phase space is decoupled for each cell at position $s_i$ along the magnetic field. In our hybrid Vlasov simulation \cite{zheng2023b,zheng2024}, we separately examine the phase flow for the onset of chorus using the following Hamiltonian,
 \begin{equation}\label{eq.H_lab}
     K = \frac{k_l^2\Omega^2}{2} + \mathbb{R}\left(\frac{\omega_b^2}{k_l^2} (e^{-\imath \xi} + \alpha \cdot \xi) \right)~,
 \end{equation}
 where $\mathbb{R}$ denotes taking the real part.
-The bounce frequency satisfies
-\begin{equation}
-    \frac{\omega_b^2}{k_l^2} = \sqrt{2\omega_{ce}\mu}a(s_i,t)~,
-\end{equation}
-where $\mu = (\mathcal{J}+\Pi+\Omega$ and 
+The inhomogeneous parameter $\alpha$ satisfies
 \begin{equation}\label{eq.alpold}
    \alpha  = \frac{k_l}{\omega_b^2}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds}~,
 \end{equation}
-is the inhomogeneous parameter that describes the frequency chirping and inhomogeneities in the background magnetic field.
-Other coordinates and variables such as the canonical momentum $\mathcal{J}$, gyro frequency $\omega_{ce}$, and parameter $\Pi = (\omega - \omega_{ce})/k^2$ are determined from on each local cell \cite{zheng2024,zheng2023b}.
-The background magnetic field and $\Pi$ parameters are shown in Figs. \ref{fig.aanda}(a) and (b).
-
+and the bounce frequency satisfies
+\begin{equation}
+    \frac{\omega_b^2}{k_l^2} = \sqrt{2\omega_{ce}\mu}a(s_i,t)~,
+\end{equation}
+where $\mu = \mathcal{J}+\Pi+\Omega$. 
+Note that $\mathcal{J}$ is another canonical momentum associated with the slow scale motion along field line. Gyro frequency $\omega_{ce}$, and parameter $\Pi = (\omega - \omega_{ce})/k^2$ are determined from background plasma parameter on each local cell \cite{zheng2024,zheng2023b}. The background magnetic field and $\Pi$ parameters are shown in Figs. \ref{fig.aanda}(a) and (b).
 
 \begin{figure}
     \centering
@@ -88,7 +76,7 @@ Their momenta, as shown in Fig. \ref{fig.phaseflow}(c), are also accelerating up
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{img/phaseflow.pdf}
-    \caption{(a) Phase space trajectories of  test particles with initial angle $\xi = 5$ sampled in $\Omega \in [-0.01,0.01]$, (b) typical variation of angle coordinate $\xi$ of a test particle and the corresponding wave phase $\delta \phi$ along its trajectory. (c) the corresponding variation of particle momentum $\Omega$ with time. The dashed line denotes Eq. (\ref{eq.ft}).
+    \caption{(a) Phase space trajectories of  test particles with initial angle $\xi = 6$ sampled in $\Omega \in [-0.01,0.01]$, (b) typical variation of angle coordinate $\xi$ of a test particle and the corresponding wave phase $\delta \phi$ along its trajectory. (c) the corresponding variation of particle momentum $\Omega$ with time. The dashed line denotes Eq. (\ref{eq.ft}).
     \label{fig.phaseflow}
     }
 \end{figure}
@@ -156,7 +144,8 @@ and we have a new $\alpha^\prime$
     & + \frac{1}{k_l^2}\left(\frac{\partial \delta \omega}{\partial t} + 2 v_r \frac{\partial \delta \omega}{\partial s} + \frac{3}{2}v_r\frac{\delta k}{k_l} \frac{d \omega_{ce}}{d s}\right)~.
     \end{aligned}
 \end{equation}
-The additional terms compared to Eq. (\ref{eq.alpold}) first order correction related to frequency chirping and wave number variation.
+The modified parameter now describes the frequency chirping and inhomogeneities in the background magnetic field, and 
+the additional terms compared to Eq. (\ref{eq.alpold}) is the first order correction related to frequency chirping and wave number variation.
 
 \begin{figure}
     \centering
