@@ -3,11 +3,12 @@
 %\subsection{Adiabatic invariant}
 %the adiabatic invariant 
 For the resonant electrons trapped by the slowly varying wave envelope and circling around in the phase space,  the adiabatic invariant is defined as
-%at a given $s_i$,
+%at a given $s$,
 \begin{equation}\label{eq.def_I}
     \mathcal{I} = \frac{1}{2\pi} \oint \Omega(H,\xi,t) \mathrm{d} \xi~,
 \end{equation}
-where $\Omega$ is an implicit function of the Hamiltonian $H$.
+where $\oint$ denotes the loop integral along the enclosed phase trajectory, as shown in Fig. \ref{fig.traj}(c) and (d). 
+$\Omega$ is the canonical momentum expressed as an implicit function of the Hamiltonian $H$.
 %From the above-mentioned
 Using the Hamiltonian (\ref{eq.H_lab}) and (\ref{eq.H_frame}), 
 %combining the equation of the moving frame along magnetic field line, 
@@ -15,10 +16,10 @@ we can numerically calculate the adiabatic invariant $\mathcal{I}$  in the stati
 
 %verify I is invariant
 %for different alpha, if the particle remain trapped...
-%To do so, we first iterate the phase space flow with time step $\Delta T$ for one fixed $K_i$ at a given $s_i$ and the corresponding background parameters. 
+%To do so, we first iterate the phase space flow with time step $\Delta T$ for one fixed $K$ at a given $s$ and the corresponding background parameters. 
 %Then we push the particle to the next location along the field line. 
 %For the deeply trapped particle, we just push the particle to the adjacent cell, which is competitive with our Vlasov simulation.
-%At new location, we again trace the phase flow with updated background parameter, wave field and new $K_i$.
+%At new location, we again trace the phase flow with updated background parameter, wave field and new $K$.
 %By iteratively following the field lines and tracing in phase space, we can construct a continuous trajectory for a particle.
 
 For each temporospatial location, with fixed background and wave parameters, we are able to complete a closed trajectory if the particle stay trapped in the wave field.  
@@ -62,30 +63,42 @@ The releasing of trapped particle, which is reported in the particle in cell (PI
 % \section{The adiabatic approximation}
 %solve current integral and obtain the chirping law
 %Nevertheless, harnessing 
-With the adiabatic approximation, we can greatly reduce the description of the trapped particle distribution and the energetic particle current.
-%In our previous studies, we obtain 
+
+In Fig. \ref{fig.hole}, we show the contour plot of the Hamiltonian (\ref{eq.H_frame}) at $s\simeq2106c/\omega_{pe}$, $t\simeq41564\omega_{pe}^{-1}$ and the corresponding phase space hole obtained from our Vlasov simulation, respectively.
+According to the canonical transformation in Eq. (\ref{eq.ct}), we can successfully translate the phase space hole back to the center region. 
+The trapped region, i.e., the closed area in the Hamiltonian contour, matches well with the simulated hole in both the shape and the location.
 The nonlinear energetic particle current $j_p$ is obtained from the velocity integral of the perturbed distribution function 
+ \begin{figure}
+     \centering
+     \includegraphics[scale=0.5]{img/Ham_and_f.pdf}
+     \caption{(a) The Hamiltonian contour in the real-time resonance frame of reference and (b) the translated phase space hole from Vlasov simulation. The dashed line denotes the boundary of the hole, obtained from Eq. (\ref{eq.bound}).
+     \label{fig.hole}
+     }
+ \end{figure}
+%In our previous studies, we obtain 
 \cite{zheng2024}
 \begin{equation}\label{eq.ep_current}
     \begin{aligned}
-j_p(s_i,t) & = -\frac{1}{ 4 \pi } \frac{\omega_{h0}^2k_i}{e}\iiint \sqrt{2m_e\omega_{ce}(s)(\mathcal{J}+\Omega+\Pi_i)} 
+j_p(s,t) & = -\frac{1}{ 4 \pi } n_h k \iiint \sqrt{2m_e\omega_{ce}(s)(\mathcal{J}+\Omega+\Pi)} 
  \\
- &\times f(\xi,\Omega,\mathcal{J};s_i(t),t)e^{\imath \xi} \rm d \xi \rm d \Omega \rm d \mathcal{J}~.
+ &\times f(\xi,\Omega,\mathcal{J};s(t),t)e^{\imath \xi} \rm d \xi \rm d \Omega \rm d \mathcal{J}~.
     \end{aligned}
 \end{equation}
+where $n_h$ is the density of the energetic particle.
 %The current dominates the nonlinear behavior of the chorus chirping process, and under certain condition, we can simplify the phase space integral and show qualitatively how does the current evolves.
-At the nonlinear stage, the distribution function of the trapped electrons forms a hole in phase space.
+%At the nonlinear stage, the distribution function of the trapped electrons forms a hole in phase space.
 % and we consider its  $\Delta f$, .
+With the adiabatic approximation, we can greatly reduce the description of the trapped particle distribution and the energetic particle current.
 Since the equilibrium distribution does not contribute to the current, the nonlinear current is directly determined by 
 the deviation from the unperturbed distribution, i.e., the depth of the hole,
 $\Delta f$.
-The depth of the hole can be written as the function of the adiabatic invariant, i.e., $\Delta f(s_i,\mathcal{J},\mathcal{I},\xi,t)$.
+The depth of the hole can be written as the function of the adiabatic invariant, i.e., $\Delta f(s,\mathcal{J},\mathcal{I},\xi,t)$.
 Now we replace $f$ by $\Delta f$ in the current integral in Eq. (\ref{eq.ep_current}) and write  the integral as
 \begin{equation}
 \begin{aligned}
-    j_p(s_i,t) & \approx - \int\mathrm{d} \mathcal{J} \sqrt{2 \omega_{ce} (\mathcal{J} + \Pi_i(t))}
+    j_p(s,t) & \approx - \int\mathrm{d} \mathcal{J} \sqrt{2 \omega_{ce} (\mathcal{J} + \Pi(t))}
     \\
-    &\times \int_0^{\mathcal{I}_{\mathrm{s p x}}}  \mathrm{d}\mathcal{I}  \oint \mathrm{d}\psi  \Delta f(s_i,\mathcal{J},\mathcal{I},\xi,t)e^{\imath \xi}  ~.
+    &\times \int_0^{\mathcal{I}_{\mathrm{s p x}}}  \mathrm{d}\mathcal{I}  \oint \mathrm{d}\psi  \Delta f(s,\mathcal{J},\mathcal{I},\xi,t)e^{\imath \xi}  ~.
 \end{aligned}
 \end{equation}
 Note that $\Omega$ in the square root has been  neglected since $\Omega \simeq 0$.
@@ -102,9 +115,9 @@ where $\langle\cdots\rangle$ denotes the bounce average, following the definitio
 Thus the current integral becomes
 \begin{equation}\label{eq.adiabatic_current}
 \begin{aligned}
-    j_p(s_i,t)  &\approx -  {2\pi} \int\mathrm{d} \mathcal{J}  \sqrt{2\omega_{ce} (\mathcal{J} + \Pi_i(t))} \\
+    j_p(s,t)  &\approx -  {2\pi} \int\mathrm{d} \mathcal{J}  \sqrt{2\omega_{ce} (\mathcal{J} + \Pi(t))} \\
     & \times 
-    \int_0^{\mathcal{I}_{\mathrm{s p x}}}\mathrm{d}\mathcal{I}  \langle \Delta f(s_i,\mathcal{J},\mathcal{I},\xi,t)e^{\imath \xi} \rangle  ~.
+    \int_0^{\mathcal{I}_{\mathrm{s p x}}}\mathrm{d}\mathcal{I}  \langle \Delta f(s,\mathcal{J},\mathcal{I},\xi,t)e^{\imath \xi} \rangle  ~.
 \end{aligned}
 \end{equation}
 %For the adiabatic regime, the characteristic scales should vary considerably slowly compared to the wave trapping scale.
@@ -130,10 +143,10 @@ Therefore, the integral over $\mathcal{I}$ only depend on the $\mathcal{I}_\math
  adiabatic invariant on the separatrix. 
 According to Eq. (\ref{eq.def_I}), we have
 \begin{equation}
-    \int^{\mathcal{I}_\mathrm{s p x}}_0 \mathrm{d}\mathcal{I} = \mathcal{I}_\mathrm{s p x} \equiv {1\over2\pi} \oint_\mathrm{s p x} \Omega (\xi) \mathrm{d} \xi~,
+    \int^{\mathcal{I}_\mathrm{s p x}}_0 \mathrm{d}\mathcal{I} = \mathcal{I}_\mathrm{s p x} \equiv {\frac{1}{2\pi}} \oint_\mathrm{s p x} \Omega (\xi) \mathrm{d} \xi~,
 \end{equation}
 where the boundary of the trapped particle phase space hole can be analytically given as
-\begin{equation}
+\begin{equation}\label{eq.bound}
     \Omega(\xi) = \pm \frac{\omega_b}{k^2} \sqrt{2 (e_\mathrm{spx}-\cos \xi - \alpha \xi)}~,
 \end{equation}
 and $e_\mathrm{spx}$ denotes the Hamiltonian on the separatrix.
@@ -142,8 +155,8 @@ and $e_\mathrm{spx}$ denotes the Hamiltonian on the separatrix.
 Then the current integral becomes  
 \begin{equation}\label{eq.adi_J}
     \begin{aligned}
-    j_p(s_i,t) & \approx \frac{\sqrt{2} \omega_b}{k^2}  \left(m_\mathrm{s p x}+\imath ~ n_\mathrm{s p x}\right) \\
-    & \times  \int \mathrm{d} \mathcal{J} \sqrt{ \omega_{c e}(\mathcal{J}+\Pi_i(t))} \Delta f(\mathcal{J},s_i,t) ~,
+    j_p(s,t) & \approx \frac{\sqrt{2} \omega_b}{k^2}  \left(m_\mathrm{s p x}+\imath ~ n_\mathrm{s p x}\right) \\
+    & \times  \int \mathrm{d} \mathcal{J} \sqrt{ \omega_{c e}(\mathcal{J}+\Pi(t))} \Delta f(\mathcal{J},s,t) ~,
     \end{aligned}
 \end{equation}
 where
@@ -165,14 +178,14 @@ where
     \includegraphics[scale=0.5]{img/alpha.pdf}
     \caption{(a) Current ratio versus the inhomogeneous parameter $\alpha$. The scattered points are obtained at difference spatial locations from the simulation, the triangles are obtained from near the equator region while circus are obtained from the downstream region. 
     The solid curve is the results from adiabatic approximation Eq. (\ref{eq.adia_relation}). 
-    (b) Snapshot  of the parameter $\alpha$ at $t = 850$ obtained  from the definition in Eq. (\ref{eq.alpnew}) (black solid line) and  from adiabatic relation (red dashed line).
+    (b) Snapshot  of the parameter $\alpha$ at $t = t\simeq41564\omega_{pe}^{-1}$ obtained  from the definition  Eq. (\ref{eq.alpnew}) (red dashed line) and  from adiabatic relation Eq. (\ref{eq.adia_relation}) (black solid line).
     }
     \label{fig.adiabatic}
 \end{figure}
 
 
 %A $\delta f$ Vlasov equation coupled with a wave envelope equation are given and self-consistently describes the wave-particle interactions.
-%Here, we recall the Vlasov equation for $\delta f(s_i,\vartheta,\mathcal{J},\xi,\Omega)$ 
+%Here, we recall the Vlasov equation for $\delta f(s,\vartheta,\mathcal{J},\xi,\Omega)$ 
 %\begin{equation}\label{eq.vlasov}
 %    \frac{\partial \delta f}{\partial t} + \frac{d s_{i}}{d t} \frac{\partial \delta f}{\partial s_{i}} + \frac{d\mathcal{J}}{dt}\frac{\partial \delta f}{\partial \mathcal{J}} + \frac{\partial \delta f}{\partial \xi}\frac{d \xi}{dt} + \frac{\partial \delta f}{\partial \Omega}\frac{d \Omega}{d t}  = \frac{\partial f_0}{\partial \Omega}\frac{\partial \delta K}{\partial \xi}~,
 %\end{equation}
@@ -182,44 +195,57 @@ where
 %The equations for the fast varying compontens
 %\begin{equation}\label{eq.odes2}
 %    \begin{aligned}
-%    \frac{\mathrm{d}\Omega}{\mathrm{d}t} &= \frac{\omega_b^2}{k_i^2}\left(\sin \xi - \alpha \right)~,
+%    \frac{\mathrm{d}\Omega}{\mathrm{d}t} &= \frac{\omega_b^2}{k^2}\left(\sin \xi - \alpha \right)~,
 %    \\
-%    \frac{\mathrm{d}\xi}{\mathrm{d}t} &= {k_{i}^{2}\Omega}+ \frac{\omega_{ce} }{\sqrt{2\omega_{ce}(\mathcal{J}+\Omega+\Pi_i)}}\frac{e |a|}{c}\cos \xi ~.
+%    \frac{\mathrm{d}\xi}{\mathrm{d}t} &= {k_{i}^{2}\Omega}+ \frac{\omega_{ce} }{\sqrt{2\omega_{ce}(\mathcal{J}+\Omega+\Pi)}}\frac{e |a|}{c}\cos \xi ~.
 %    \end{aligned}
 %\end{equation}
 %and 
 %\begin{equation}\label{eq.alp1}
-%   \alpha \simeq \frac{k_l}{\omega_b^2}\left(\mathcal{J}-\frac{\Pi_i}{2}\right) \frac{\partial \omega_{c e}}{\partial s}
+%   \alpha \simeq \frac{k_l}{\omega_b^2}\left(\mathcal{J}-\frac{\Pi}{2}\right) \frac{\partial \omega_{c e}}{\partial s}
 %\end{equation}
 %
 %The wave equation 
 %\begin{equation}\label{eq.full}
-%    \frac{\partial a}{\partial t} +v_g \frac{\partial a}{\partial s_i} =\frac{-\imath 2\pi v_g}{c k_i } j_p~,
+%    \frac{\partial a}{\partial t} +v_g \frac{\partial a}{\partial s} =\frac{-\imath 2\pi v_g}{c k } j_p~,
 %\end{equation}
 %for reference.
 %The energetic particle current $j_p$ is
 %\begin{equation}\label{eq.ep_current}
-%j_p(s_i,t) = -\frac{1}{ 4 \pi } \frac{\omega_{h0}^2k_i}{e}\iiint \sqrt{2m_e\omega_{ce}(s)(\mathcal{J}+\Omega+\Pi_i)} \times f(\xi,\Omega,\mathcal{J};s_i(t),t)e^{\imath \xi} \rm d \xi \rm d \Omega \rm d \mathcal{J}~,
+%j_p(s,t) = -\frac{1}{ 4 \pi } \frac{\omega_{h0}^2k}{e}\iiint \sqrt{2m_e\omega_{ce}(s)(\mathcal{J}+\Omega+\Pi)} \times f(\xi,\Omega,\mathcal{J};s(t),t)e^{\imath \xi} \rm d \xi \rm d \Omega \rm d \mathcal{J}~,
 %\end{equation}
-The temporospatial evolution of the nonlinear current only depends on the integral over the slowly varying scale $\mathcal{J}$, and an inhomogeneity parameter $\alpha$, defined in Eq. (\ref{eq.alpnew}). 
+The temporospatial evolution of the nonlinear current only depends on the integral over the slowly varying scale $\mathcal{J}$ and the parameter $\alpha$ defined in Eq. (\ref{eq.alpnew}). 
 The $\mathcal{J}$ integral can be calculated further with the adiabatic motion of the trapped particle along the magnetic field line \cite{summers2012}, while the integrals $m_\mathrm{spx}$ and $n_\mathrm{spx}$ can be numerical integrated from Eq. (\ref{eq.function}).
 %Since the phase space hole is aligned with the slowly varying wave packet, the hole depth $\Delta f$ also contributes to a complex phase $\delta \phi(s,t)$, which is the phase of the slowly varying wave packet $\delta \phi \equiv \arg(a)$.
-Note that, our Vlasov simulation is performed with Hamiltonian Eq. (\ref{eq.H_lab}), thus the phase of the current $j_p$ in the Vlasov simulation also differs $\delta \phi$ with the current relation in Eq. (\ref{eq.adi_J}).
-To compared and verify our adiabatic theory, we should also translate this addition phase, i.e., $j^\prime_{p} = j_p \cdot e^{-\imath \delta \phi}$, where $j_p$ is the current from Vlasov equation. 
-From Eqs. (\ref{eq.adi_J}) and (\ref{eq.function}), we can find that the ratio of the imaginary and real component of $j^\prime_{p}$ is a function of $\alpha$, 
+Since the Vlasov simulation is performed with Hamiltonian Eq.~(\ref{eq.H_lab})
+\cite{zheng2023b,zheng2024}, the phase of the current $j_p$ in the Vlasov simulation also differs $\delta \phi$ with the current relation in Eq. (\ref{eq.adi_J}).
+To compare and verify the adiabatic theory, we should also take into account this additional phase, i.e., $j^\prime_{p} = j_p \cdot e^{-\imath \delta \phi}$, where $j_p$ is the current from the Vlasov simulation. 
+From Eqs.~(\ref{eq.adi_J}) and (\ref{eq.function}), we can find that the ratio of the real to imaginary components of $j^\prime_{p}=j_x+\imath~ j_y$ is a function of the inhomogeneous parameter, 
 \begin{equation}\label{eq.adia_relation}
-\frac{j_x}{j_y} = \frac{\mathrm{real}(j^\prime_p)}{\mathrm{imag}(j^\prime_p)} = \frac{m_\mathrm{spx}(\alpha)}{n_\mathrm{spx}(\alpha)}
+\frac{j_x}{j_y} 
+= \frac{{\Re}(j^\prime_p)}{{\Im}(j^\prime_p)} 
+= \frac{m_\mathrm{spx}(\alpha)}{n_\mathrm{spx}(\alpha)}
 \end{equation}
 
-By numerically solve the integral in Eq. (\ref{eq.function}), we obtain an explicit relation of current ration with respect to $\alpha$ shown in Fig. \ref{fig.adiabatic}(a). 
-Meanwhile, to verify the validity of the relation, we select various spatial locations at $t=850$ from the Vlasov simulation \cite{zheng2023b,zheng2024}, calculate the $\alpha$ from definition in Eq. (\ref{eq.alpnew}), and get the corresponding current ratio.
-It is shown that the value obtained in our simulation result well agree with the adiabatic predictions in propagation region of the chorus wave (black circles).
-Conversely, the above relation can be applied as an alternative way for evaluating the inhomogeneous parameter $\alpha$ from the energetic particle current, which might be more accurate if the current can be measured somehow.
-It is meaningful since the inhomogeneous parameter $\alpha$ is of importance to study the wave-particle interaction and chirping behavior \cite{tao_theoretical_2020,omura2008}.
+By numerically solve the integral in Eq. (\ref{eq.function}), we obtain an explicit relation of the current ratio with respect to $\alpha$, as shown in Fig. \ref{fig.adiabatic}(a). 
+%Meanwhile, 
+To verify the validity of the relation, we select various spatial locations at $t\simeq41564\omega_{pe}^{-1}$ from the Vlasov simulation \cite{zheng2023b,zheng2024}
+and calculate the $\alpha$ from the definition Eq. (\ref{eq.alpnew}) and the corresponding current ratio.
+It is shown that the values obtained in the Vlasov simulation  well agree with the adiabatic predictions in the propagation region of chorus waves (black circles).
+The  relation 
+Eq. (\ref{eq.adia_relation})
+can also be applied as an alternative way for evaluating the inhomogeneous parameter $\alpha$ from the energetic particle current.
+% which might be more accurate if the current can be measured somehow.
+%It is useful since 
+This provides a new way to obtain the inhomogeneous parameter $\alpha$ which is important to study the wave-particle interaction and the chirping behavior \cite{tao_theoretical_2020,omura2008}.
 %The relation provides an alternative way   ,  
-%Unlike to the calulating $\alpha$ from the definition, we only need to know the current 
+%Unlike to the calulating $\alpha$ from the definition, we only need to know the current Nevertheless, 
+Near the equator region where the chorus is triggered (red triangles), the adiabatic approximation is no longer valid.
 
-Nevertheless, near the equator region, where the chorus is triggered, (red triangles), the adiabatic approximation is no longer valid.
-Similar conclusion can be drawn from the spatial distribution of $\alpha$ calculated from definition in Eq. (\ref{eq.alpnew}) and the adiabatic current relation, as shown in Fig. \ref{fig.adiabatic}(b). 
-The evolution of $\alpha$ indicates a rapid variation of the phase space near the equator, which is related to the generation of the nonlinear chorus wave.
-The results of nonadiabtic regime also agree with the previous PIC simulations \cite{tao2017a,tao2017b}.
+A similar conclusion can be obtained from the spatial distribution of $\alpha$ in Fig. \ref{fig.adiabatic}(b), where we compare the value from the definition Eq. (\ref{eq.alpnew}) and the adiabatic current relation Eq. (\ref{eq.adia_relation}). 
+In the source region near the equation, $\alpha$ value from the two method does not match, and both increased to a relative large value, indicating that the violation of the adiabatic approximation.
+While in a broad range in the wave propagation region, the values agree well with each other, which means the adiabatic approximation is effective.
+In the far outer boundary over $s\simeq4000c/\omega_{pe}$, the adiabatic is also invalid, simply because the hole have not formed yet in such far region.
+%Eq. (\ref{eq.adia_relation}), as shown in Fig. \ref{fig.adiabatic}(b). 
+%The evolution of $\alpha$ indicates a rapid variation of the phase space near the equator, which is related to the generation of the nonlinear chorus wave.
+%The results of the nonadiabtic region also agree with the previous PIC simulations \cite{tao2017a,tao2017b}.

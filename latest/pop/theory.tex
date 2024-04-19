@@ -6,7 +6,7 @@ at position $s$ along the dipole field, with phase space characterized by new ca
 The Hamiltonian of resonant electrons in the frame of reference moving with the local resonance for the onset of chorus is 
 %is obtained through canonical transformation 
 \cite{zheng2024}
-%.  In the original Hamiltonian, $\xi$, $\Omega$ phase space is decoupled for each cell at position $s_i$ along the magnetic field. In our hybrid Vlasov simulation \cite{zheng2023b,zheng2024}, we separately examine the phase flow for the onset of chorus using the following Hamiltonian,
+%.  In the original Hamiltonian, $\xi$, $\Omega$ phase space is decoupled for each cell at position $s$ along the magnetic field. In our hybrid Vlasov simulation \cite{zheng2023b,zheng2024}, we separately examine the phase flow for the onset of chorus using the following Hamiltonian,
 \begin{equation}\label{eq.H_lab}
     K = \frac{k_l^2\Omega^2}{2} + {\Re}\left(\frac{\omega_b^2}{k_l^2} e^{-\imath \xi} + \frac{\omega_b^2}{k_l^2}\alpha \cdot \xi \right)~,
 \end{equation}
@@ -14,7 +14,7 @@ where ${\Re}$ denotes taking the real part.
 %We analyze 
 The inhomogeneous parameter $\alpha$ satisfies
 \begin{equation}\label{eq.alpold}
-   \alpha  = \frac{k_l}{\omega_b^2}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds}~,
+   \alpha  = \frac{k_l}{\omega_{b}^2}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds}~,
 \end{equation}
 and the bounce frequency satisfies
 \begin{equation}
@@ -25,7 +25,9 @@ relates to
 the magnetic moment.
 %$\mu = \mathcal{J}+\Pi+\Omega$. 
 Note that $\mathcal{J}$ is another canonical momentum associated with the slow-scale motion along the field line. The cyclotron frequency $\omega_{ce}$
-and parameter $\Pi = (\omega - \omega_{ce})/k_l^2$ from the canonical transformation  are determined from the background plasma parameters on each local cell \cite{zheng2024,zheng2023b}, 
+and parameter $\Pi = v_r/k_l$, where $v_r=(\omega - \omega_{ce})/k_l$ is the resonant velocity,
+%from the canonical transformation 
+are determined from the background plasma parameters on each local cell \cite{zheng2024,zheng2023b}, 
 % The background magnetic field and $\Pi$ parameters are
 as shown in Figs. \ref{fig.aanda}(a) and \ref{fig.aanda}(b).
 %\begin{figure}
@@ -57,9 +59,7 @@ move opposite to the motion of the wave packet.
 %are moving in opposite direction along the field line.
 % in Fig. \ref{fig.aanda}.
 The frequency chirping can be seen from Fig. \ref{fig.aanda}(c) where the additional phase $\delta \phi$ results in a modulation on the wave envelope.
-The chorus wave is triggered in the source region near the equator and propagates to the downstream where  a prominent wave envelope forms in the propagation region, as shown in Fig. \ref{fig.aanda}(d).
-
-
+The chorus wave is triggered in the source region near the equator and propagates to the downstream where a prominent wave envelope forms in the propagation region, as shown in Fig. \ref{fig.aanda}(d).
 %\begin{equation}\label{eq.cell_j}
 %    (\omega_l - \omega_{ce})\mathcal{J} +  \frac{(\omega_l - \omega_{ce})^2}{2k_l^2} = \mathrm{Const.}
 %\end{equation}
@@ -69,7 +69,7 @@ The chorus wave is triggered in the source region near the equator and propagate
 %resonance 
 %velocity,
 %\begin{equation}\label{eq.cell_s}
-%    \frac{d s_i}{d t} = \frac{\omega_l-\omega_{ce}}{k_l}~.
+%    \frac{d s}{d t} = \frac{\omega_l-\omega_{ce}}{k_l}~.
 %\end{equation}
 
 \begin{figure}
@@ -128,7 +128,7 @@ The momentum of the particle, as shown in Fig. \ref{fig.phaseflow}(b), is accele
 Since the wave phase $\delta \phi$ can be calculated from the Vlasov simulation
  \cite{zheng2024}, we can construct a canonical transformation to shift the static resonance frame to the real-time resonance frame.
 The new canonical variables take the form \cite{berk1999},
-\begin{equation}
+\begin{equation}\label{eq.ct}
     \begin{aligned}
         Q &= \xi - \delta \phi(s(t),t)~,
         \\
@@ -136,7 +136,7 @@ The new canonical variables take the form \cite{berk1999},
     \end{aligned}
 \end{equation}
 where $f(t)$ is a time dependent function to be determined.
-The canonical  transformation corresponds to a type-2 generating function
+The canonical  transformation corresponds to a type-2 generating function \cite{goldstein2001}
 \begin{equation}
     F_2(\xi,P,t) = (\xi - \delta \phi) \cdot P + \xi \cdot f(t)
 \end{equation}
@@ -174,34 +174,29 @@ For the derivative of $f(t)$, we only keep the term up to the first order, which
 \end{equation}
 Finally, the new Hamiltonian takes the  form 
 \begin{equation}\label{eq.H_frame}
-    K^\prime = \frac{k_l^2 P^2}{2} + \frac{{\omega^\prime_{b}}^2}{k_l^2} \cos Q +\frac{{\omega^\prime_{b}}^2}{k_l^2} \alpha^\prime \cdot Q~,
+    K^\prime = \frac{k_l^2 P^2}{2} + \frac{{\omega_{b}}^2}{k_l^2} \cos Q +\frac{{\omega_{b}}^2}{k_l^2} \alpha \cdot Q~,
 \end{equation}
-where 
-%the new bounce frequency $\omega^\prime_{b}$ satisfies
-\begin{equation}
-    \frac{{\omega^\prime_{b}}^2}{k_l^2} = \sqrt{2\omega_{ce}(\mathcal{J}+P+f(t)+\Pi)}  |a|
+where we have a new relation about $\omega_{b}$
+%the new bounce frequency $\omega_{b}$ satisfies
+\begin{equation}\label{eq.wbnew}
+    \frac{{\omega_{b}}^2}{k_l^2} = \sqrt{2\omega_{ce}(\mathcal{J}+P+f(t)+\Pi)}  |a|
 \end{equation}
-and 
+and $\alpha$ becomes
 %the new $\alpha^\prime$ satisfies
 \begin{equation}\label{eq.alpnew}
     \begin{aligned}
-    \frac{{\omega^\prime_{b}}^2}{k_l^2}\alpha^\prime & = \frac{1}{k_l}\left(\mathcal{J} - \frac{\Pi}{2}\right) \frac{d\omega_{ce}}{ds} \\
+    \frac{{\omega_{b}}^2}{k_l^2}\alpha & = \frac{1}{k_l}\left(\mathcal{J} - \frac{\Pi}{2}\right) \frac{d\omega_{ce}}{ds} \\
     & + \frac{1}{k_l^2}\left(\frac{\partial \delta \omega}{\partial t} + 2 v_r \frac{\partial \delta \omega}{\partial s} + \frac{3}{2}v_r\frac{\delta k}{k_l} \frac{d \omega_{ce}}{d s}\right)~.
     \end{aligned}
 \end{equation}
-The modified parameters describe the frequency chirping and 
-the background magnetic field inhomogeneity.
+The modified parameter $\alpha$ now describe the frequency chirping and the background magnetic field inhomogeneity.
 %inhomogeneities in the background magnetic field, and 
 The additional terms in Eq. (\ref{eq.alpnew}) compared to Eq.~(\ref{eq.alpold}) are the first order correction related to the frequency chirping and wave number variation.
 
 
 %Using the wave data from our Vlasov simualtion, we show the contour plot both of the Hamiltonian (\ref{eq.H_lab}) and the modified Hamiltonian (\ref{eq.H_frame}) in Fig. \ref{fig.Hamcontour}. Due to the $\alpha$/$drg$ term in the Hamiltonian, the trapped region is enclosed between a saddle point  and a C point.
  Using the new Hamiltonian, we are able to consider  the particle dynamics in the real-time resonance frame
- where the Hamilton's equations have the same form as those in Eq.~(\ref{eq.lab_eq}) with the replacement
-$\xi$ to $Q$,
-$\Omega$ to $P$,
-$\alpha$ to  $\alpha^\prime$, and 
-${\omega_{b}}$ to ${\omega^\prime_{b}}$.
+ where the Hamilton's equations have the same form as those in Eq.~(\ref{eq.lab_eq}) with the replacement $\xi$ to $Q$, $\Omega$ to $P$, and applying new definition of $\alpha$ and  ${\omega_{b}}$ in Eqs. (\ref{eq.alpnew}) and (\ref{eq.wbnew}).
 %only substitution of the parameter to new $\alpha^\prime$ and ${\omega^\prime_{b}}$.
 %Now, for the new Hamiltonian, we solve the trajectory for a similar trapped test particle from the same temporospatial location $s_0,t_0$. 
 %We compare the phase space trajectory with that in the static frame in Fig. \ref{fig.traj}.
