@@ -1,33 +1,41 @@
 %\section{ Hamiltonian theory}
 %\label{sec:theory}
-The wave-particle interaction is described on the local cells 
-at position $s$ along the dipole field, with phase space characterized by new canonical coordinates $(\xi$, $\Omega)$
+The wave-particle interaction is described by the Hamiltonian on the local cells 
+at position $s$ along the dipole field, with phase space characterized by the canonical coordinates $(\xi$, $\Omega)$ in the frame of reference moving with the local resonance
 \cite{zheng2024}.
-The Hamiltonian of resonant electrons in the frame of reference moving with the local resonance for the onset of chorus is 
+In the Vlasov simulations of  the onset of chorus
+\cite{zheng2024,zheng2023b}, we choose the reference frame fixed at the frequency  $\omega_l$ and wave number $k_l$  of the most unstable whistler wave which is excited from the electron temperature anisotropy \cite{gary_1993}. 
+Since $\omega_l$ and $k_l$ are constant in time, we refer such reference frame as the static resonance frame. 
+The Hamiltonian of resonant electrons  for the onset of chorus is 
 %is obtained through canonical transformation 
 \cite{zheng2024}
 %.  In the original Hamiltonian, $\xi$, $\Omega$ phase space is decoupled for each cell at position $s$ along the magnetic field. In our hybrid Vlasov simulation \cite{zheng2023b,zheng2024}, we separately examine the phase flow for the onset of chorus using the following Hamiltonian,
 \begin{equation}\label{eq.H_lab}
     K = \frac{k_l^2\Omega^2}{2} + {\Re}\left(\frac{\omega_b^2}{k_l^2} e^{-\imath \xi} + \frac{\omega_b^2}{k_l^2}\alpha \cdot \xi \right)~,
 \end{equation}
-where ${\Re}$ denotes taking the real part.
-%We analyze 
-The inhomogeneous parameter $\alpha$ satisfies
+where ${\Re}$ denotes taking the real part, 
+%We analyze the reduced expression of the inhomogeneous parameter $\alpha$ for the onset of chorus is 
+%satisfies
 \begin{equation}\label{eq.alpold}
-   \alpha  = \frac{k_l}{\omega_{b}^2}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds}~,
+   \alpha  \simeq \frac{k_l}{\omega_{b}^2}(\mathcal{J} - \frac{\Pi}{2}) \frac{d\omega_{ce}}{ds}~
 \end{equation}
-and the bounce frequency satisfies
+is the inhomogeneous parameter,
+and 
 \begin{equation}
-    \frac{\omega_b^2}{k_l^2} =  a(s,t) \sqrt{2\omega_{ce}\mu(s)}~,
+    {\omega_b^2} = k_l^2 a(s,t) \sqrt{2\omega_{ce}\mu(s)}~,
 \end{equation}
-where $\mu(s) = \mathcal{J}(s)+\Pi(s)+\Omega$
-relates to 
-the magnetic moment.
-%$\mu = \mathcal{J}+\Pi+\Omega$. 
-Note that $\mathcal{J}$ is another canonical momentum associated with the slow-scale motion along the field line. The cyclotron frequency $\omega_{ce}$
-and parameter $\Pi = v_r/k_l$, where $v_r=(\omega - \omega_{ce})/k_l$ is the resonant velocity,
-%from the canonical transformation 
-are determined from the background plasma parameters on each local cell \cite{zheng2024,zheng2023b}, 
+is the bounce frequency 
+with $\mu(s) = \mathcal{J}(s)+\Pi(s)+\Omega$.
+% %relates to 
+% the magnetic moment.
+% %$\mu = \mathcal{J}+\Pi+\Omega$. 
+Here $\mathcal{J}$ is the canonical momentum associated with the slow-scale motion along the field line
+and the parameter $\Pi = v_r/k_l$ is 
+from the canonical transformation, 
+where  $v_r(s)=(\omega - \omega_{ce})/k_l$ is the resonance velocity. The cyclotron frequency $\omega_{ce}(s)$ 
+and 
+the parameter $\Pi(s)$
+are determined from the background plasma parameters along the dipole field \cite{zheng2024,zheng2023b}, 
 % The background magnetic field and $\Pi$ parameters are
 as shown in Figs. \ref{fig.aanda}(a) and \ref{fig.aanda}(b).
 %\begin{figure}
@@ -43,8 +51,6 @@ as shown in Figs. \ref{fig.aanda}(a) and \ref{fig.aanda}(b).
 %electrons move from downstream to upstream, wave move in opposite direction, k along B field line
 %In the magnetosphere, the chorus is triggered by the unstable whistler wave \cite{omura_theory_2008,tao_theoretical_2020}. 
 %The most unstable whistler wave with frequency $\omega_l$ and wave number $k_l$ is the seed wave for triggering the chirping chorus.
-To study the onset of the chorus, we choose the reference frame fixed at the frequency  $\omega_l$ and wave number $k_l$  of the most unstable whistler wave which is excited from the electron temperature anisotropy \cite{gary_1993}. 
-Since $\omega_l$ and $k_l$ are constant in time, we refer such reference frame as the static resonance frame. 
 The  wave envelope of the vector potential $a$ becomes a complex number with an additional phase $\delta \phi$ since the static frame can not exactly follow the real-time resonance. 
 The complex wave vector potential $a$ is written as 
 \begin{equation}
@@ -110,20 +116,17 @@ The momentum of the particle, as shown in Fig. \ref{fig.phaseflow}(b), is accele
     \label{fig.phaseflow}
     }
 \end{figure}
+
 \begin{figure}
-    \centering
-    \includegraphics[scale=0.5]{img/Trajectory.pdf}
-    \caption{Phase space trajectory of a test particle from $s \simeq 2107 c/\omega_{pe}$ at $t\simeq 36675 \omega_{pe}^{-1}$ 
-    (red dots)
-     to $s \simeq 205 c/\omega_{pe}$ at $t=45476 \omega_{pe}^{-1}$ 
-    (green dots)
-      in the (a) static  and  (b) real-time frames.  The corresponding enclosed phase space loop of a particle in the (c)  static and  (d) real-time  frames. 
-      %at different times. The red and green dots and  denote 
-      %during the time period during which the particles are trapped. 
-%    The start point, and the green dot denotes $t \simeq 44498  \omega_{pe}^{-1}$ which is the critical point where the adiabatic invariant changes significantly.
-    \label{fig.traj} 
-    }
-\end{figure}
+     \centering
+     \includegraphics[scale=0.5]{img/Ham_and_f.pdf}
+     \caption{(a)  
+     Contour plot of  Hamiltonian 
+Eq.~(\ref{eq.H_frame}) at $s\simeq2106c/\omega_{pe}$ and $t\simeq41564\omega_{pe}^{-1}$. 
+ (b) Shifted phase space hole from the Vlasov simulation. The dashed line denotes the boundary of the hole obtained from Eq. (\ref{eq.bound}).
+     \label{fig.hole}
+     }
+ \end{figure}
 
 Since the wave phase $\delta \phi$ can be calculated from the Vlasov simulation
  \cite{zheng2024}, we can construct a canonical transformation to shift the static resonance frame to the real-time resonance frame.
@@ -172,31 +175,67 @@ For the derivative of $f(t)$, we only keep the term up to the first order, which
 \begin{equation}
     \frac{d f(t)}{d t} \simeq \frac{1}{k_l^2}(\frac{\partial \delta \omega}{\partial t} + 2 v_r \frac{\partial \delta \omega}{\partial s} + \frac{3}{2}v_r\frac{\delta k}{k_l} \frac{d \omega_{ce}}{d s}  ).
 \end{equation}
-Finally, the new Hamiltonian takes the  form 
+Finally, the new Hamiltonian becomes 
 \begin{equation}\label{eq.H_frame}
-    K^\prime = \frac{k_l^2 P^2}{2} + \frac{{\omega_{b}}^2}{k_l^2} \cos Q +\frac{{\omega_{b}}^2}{k_l^2} \alpha \cdot Q~,
+    K^\prime = \frac{k_l^2 P^2}{2} + \frac{{\omega^2_{b}}}{k_l^2} \cos Q +\frac{{\omega^2_{b}}}{k_l^2} \alpha \cdot Q~.
 \end{equation}
-where we have a new relation about $\omega_{b}$
-%the new bounce frequency $\omega_{b}$ satisfies
+With the canonical  transformation,
+ % we have a new relation about $\omega_{b}$
+the $\omega_{b}$
+and  $\alpha$ take the new form: 
+% have a new experession 
+%  satisfies
 \begin{equation}\label{eq.wbnew}
-    \frac{{\omega_{b}}^2}{k_l^2} = \sqrt{2\omega_{ce}(\mathcal{J}+P+f(t)+\Pi)}  |a|
+    \frac{{\omega^2_{b}}}{k_l^2} = \sqrt{2\omega_{ce}(\mathcal{J}+P+f(t)+\Pi)}  |a|
 \end{equation}
-and $\alpha$ becomes
+and 
+%$\alpha$ becomes
 %the new $\alpha^\prime$ satisfies
 \begin{equation}\label{eq.alpnew}
     \begin{aligned}
-    \frac{{\omega_{b}}^2}{k_l^2}\alpha & = \frac{1}{k_l}\left(\mathcal{J} - \frac{\Pi}{2}\right) \frac{d\omega_{ce}}{ds} \\
+    \frac{{\omega^2_{b}}}{k_l^2}\alpha & = \frac{1}{k_l}\left(\mathcal{J} - \frac{\Pi}{2}\right) \frac{d\omega_{ce}}{ds} \\
     & + \frac{1}{k_l^2}\left(\frac{\partial \delta \omega}{\partial t} + 2 v_r \frac{\partial \delta \omega}{\partial s} + \frac{3}{2}v_r\frac{\delta k}{k_l} \frac{d \omega_{ce}}{d s}\right)~.
     \end{aligned}
 \end{equation}
 The modified parameter $\alpha$ now describe the frequency chirping and the background magnetic field inhomogeneity.
 %inhomogeneities in the background magnetic field, and 
 The additional terms in Eq. (\ref{eq.alpnew}) compared to Eq.~(\ref{eq.alpold}) are the first order correction related to the frequency chirping and wave number variation.
+%, we show the contour plot of the Hamiltonian , respectively.
+In Fig.~\ref{fig.hole}(a),
+the closed area of the Hamiltonian contour Eq.~(\ref{eq.H_frame})
+implies the region where the particles are trapped. 
+In the Vlasov simulation
+\cite{zheng2024},
+the center of the hole moves upwards in the canonical momentum  
+$\Omega$
+in phase space.  
+According to the canonical transformation in Eq.~(\ref{eq.ct}), 
+the  phase space hole 
+%obtained from the Vlasov simulation \cite{zheng2024}
+can be shifted back to the center region where $\Omega-f(t)\simeq 0$,
+as shown in Fig.~\ref{fig.hole}(b). 
+The trapped region from the Hamiltonian 
+     in the real-time resonance frame 
+ matches well with the shifted phase space hole from the Vlasov simulation in both the shape and the location.
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{img/Trajectory.pdf}
+    \caption{Phase space trajectory of a test particle from $s \simeq 2107 c/\omega_{pe}$ at $t\simeq 36675 \omega_{pe}^{-1}$ 
+    (red dots)
+     to $s \simeq 205 c/\omega_{pe}$ at $t=45476 \omega_{pe}^{-1}$ 
+    (green dots)
+      in the (a) static  and  (b) real-time frames.  The corresponding enclosed phase space loop of a particle in the (c)  static and  (d) real-time  frames. 
+      %at different times. The red and green dots and  denote 
+      %during the time period during which the particles are trapped. 
+%    The start point, and the green dot denotes $t \simeq 44498  \omega_{pe}^{-1}$ which is the critical point where the adiabatic invariant changes significantly.
+    \label{fig.traj} 
+    }
+\end{figure}
 
 %Using the wave data from our Vlasov simualtion, we show the contour plot both of the Hamiltonian (\ref{eq.H_lab}) and the modified Hamiltonian (\ref{eq.H_frame}) in Fig. \ref{fig.Hamcontour}. Due to the $\alpha$/$drg$ term in the Hamiltonian, the trapped region is enclosed between a saddle point  and a C point.
- Using the new Hamiltonian, we are able to consider  the particle dynamics in the real-time resonance frame
- where the Hamilton's equations have the same form as those in Eq.~(\ref{eq.lab_eq}) with the replacement $\xi$ to $Q$, $\Omega$ to $P$, and applying new definition of $\alpha$ and  ${\omega_{b}}$ in Eqs. (\ref{eq.alpnew}) and (\ref{eq.wbnew}).
+ Using the new Hamiltonian, we can now consider  the particle dynamics in the real-time resonance frame
+ where the Hamilton's equations have the same form as those in Eq.~(\ref{eq.lab_eq}) with the replacement of $\xi$ to $Q$ and $\Omega$ to $P$ and applying the new definition of ${\omega_{b}}$ and $\alpha$  in Eqs.~(\ref{eq.wbnew}) and (\ref{eq.alpnew}).
 %only substitution of the parameter to new $\alpha^\prime$ and ${\omega^\prime_{b}}$.
 %Now, for the new Hamiltonian, we solve the trajectory for a similar trapped test particle from the same temporospatial location $s_0,t_0$. 
 %We compare the phase space trajectory with that in the static frame in Fig. \ref{fig.traj}.
@@ -204,4 +243,5 @@ The additional terms in Eq. (\ref{eq.alpnew}) compared to Eq.~(\ref{eq.alpold}) 
 %It can be found that 
 %Unlike in the static  resonance frame where the particle suffers a rapid change in $\Omega$ for each bounce in accordance with  Fig. \ref{fig.phaseflow}(b), there exists only a slight change when we track the particle in the real-time resonance frame, which demonstrates the effectiveness of the canonical transformation.
 To show the differences, we choose a test particle initially at the resonance center and calculate its phase space trajectories in the different reference frames. In the static resonance frame, the particle suffers a rapid change in $\Omega$  for each bounce, as seen   in Fig. \ref{fig.traj}(a). In constrast, there exists only a slight change when we track the particle in the real-time resonance frame, as shown in Fig. \ref{fig.traj}(b), which demonstrates the effectiveness of the canonical transformation.
+
 

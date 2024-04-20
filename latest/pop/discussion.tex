@@ -5,15 +5,15 @@
 For the resonant electrons trapped by the slowly varying wave envelope and circling around in the phase space,  the adiabatic invariant is defined as
 %at a given $s$,
 \begin{equation}\label{eq.def_I}
-    \mathcal{I} = \frac{1}{2\pi} \oint \Omega(H,\xi,t) \mathrm{d} \xi~,
+    \mathcal{I} = \frac{1}{2\pi} \oint \Omega(H,\xi,t) \mathrm{d} \xi~.
 \end{equation}
-where $\oint$ denotes the loop integral along the enclosed phase trajectory, as shown in Fig. \ref{fig.traj}(c) and (d). 
-$\Omega$ is the canonical momentum expressed as an implicit function of the Hamiltonian $H$.
+The integration is over a complete cycle of the coordinate $\xi$.
+%where $\oint$ denotes the loop integral along the enclosed phase trajectory, as shown in Fig. \ref{fig.traj}(c) and (d). 
+Here the canonical momentum $\Omega$ is expressed as an implicit function of the Hamiltonian $H$.
 %From the above-mentioned
 Using the Hamiltonian (\ref{eq.H_lab}) and (\ref{eq.H_frame}), 
 %combining the equation of the moving frame along magnetic field line, 
 we can numerically calculate the adiabatic invariant $\mathcal{I}$  in the static and moving resonance frames, respectively.
-
 %verify I is invariant
 %for different alpha, if the particle remain trapped...
 %To do so, we first iterate the phase space flow with time step $\Delta T$ for one fixed $K$ at a given $s$ and the corresponding background parameters. 
@@ -21,12 +21,13 @@ we can numerically calculate the adiabatic invariant $\mathcal{I}$  in the stati
 %For the deeply trapped particle, we just push the particle to the adjacent cell, which is competitive with our Vlasov simulation.
 %At new location, we again trace the phase flow with updated background parameter, wave field and new $K$.
 %By iteratively following the field lines and tracing in phase space, we can construct a continuous trajectory for a particle.
-
 For each temporospatial location, with fixed background and wave parameters, we are able to complete a closed trajectory if the particle stay trapped in the wave field.  
 The area of the enclosed loop is actually the phase space integral $\mathcal{I}$.
 %Here, , to illustrate the adiabatic invariant, we calculate the closed phase trajectories with parameter at the initial and at the $s=540$, $t=910$ location.
 In the static frame, it is clear that the area changes significantly,
 as shown in Fig. \ref{fig.traj}(c). In the moving frame, the area changes much smaller, suggesting the validity of the particle adiabatic motion, as shown in Fig. \ref{fig.traj}(d). 
+
+
 
 \begin{figure}
     \centering
@@ -64,18 +65,10 @@ The releasing of trapped particle, which is reported in the particle in cell (PI
 %solve current integral and obtain the chirping law
 %Nevertheless, harnessing 
 
-In Fig. \ref{fig.hole}, we show the contour plot of the Hamiltonian (\ref{eq.H_frame}) at $s\simeq2106c/\omega_{pe}$, $t\simeq41564\omega_{pe}^{-1}$ and the corresponding phase space hole obtained from our Vlasov simulation, respectively.
-According to the canonical transformation in Eq. (\ref{eq.ct}), we can successfully translate the phase space hole back to the center region. 
-The trapped region, i.e., the closed area in the Hamiltonian contour, matches well with the simulated hole in both the shape and the location.
+
+
 The nonlinear energetic particle current $j_p$ is obtained from the velocity integral of the perturbed distribution function 
- \begin{figure}
-     \centering
-     \includegraphics[scale=0.5]{img/Ham_and_f.pdf}
-     \caption{(a) The Hamiltonian contour in the real-time resonance frame of reference and (b) the translated phase space hole from Vlasov simulation. The dashed line denotes the boundary of the hole, obtained from Eq. (\ref{eq.bound}).
-     \label{fig.hole}
-     }
- \end{figure}
-%In our previous studies, we obtain 
+ %In our previous studies, we obtain 
 \cite{zheng2024}
 \begin{equation}\label{eq.ep_current}
     \begin{aligned}
@@ -178,7 +171,7 @@ where
     \includegraphics[scale=0.5]{img/alpha.pdf}
     \caption{(a) Current ratio versus the inhomogeneous parameter $\alpha$. The scattered points are obtained at difference spatial locations from the simulation, the triangles are obtained from near the equator region while circus are obtained from the downstream region. 
     The solid curve is the results from adiabatic approximation Eq. (\ref{eq.adia_relation}). 
-    (b) Snapshot  of the parameter $\alpha$ at $t\simeq41564\omega_{pe}^{-1}$ obtained  from the definition  Eq. (\ref{eq.alpnew}) (red dashed line) and  from adiabatic relation Eq. (\ref{eq.adia_relation}) (black solid line).
+    (b) Spatial distribution   of the parameter $\alpha$ at $t\simeq41564\omega_{pe}^{-1}$ obtained  from the definition  Eq. (\ref{eq.alpnew}) (red dashed line) and  from adiabatic relation Eq. (\ref{eq.adia_relation}) (black solid line).
     }
     \label{fig.adiabatic}
 \end{figure}
@@ -242,10 +235,22 @@ This provides a new way to obtain the inhomogeneous parameter $\alpha$ which is 
 %Unlike to the calulating $\alpha$ from the definition, we only need to know the current Nevertheless, 
 Near the equator region where the chorus is triggered (red triangles), the adiabatic approximation is no longer valid.
 
-A similar conclusion can be obtained from the spatial distribution of $\alpha$ in Fig. \ref{fig.adiabatic}(b), where we compare the value from the definition Eq. (\ref{eq.alpnew}) and the adiabatic current relation Eq. (\ref{eq.adia_relation}). 
-In the source region near the equation, $\alpha$ value from the two method does not match, and both increased to a relative large value, indicating that the violation of the adiabatic approximation.
-While in a broad range in the wave propagation region, the values agree well with each other, which means the adiabatic approximation is effective.
-In the far outer boundary over $s\simeq4000c/\omega_{pe}$, the adiabatic is also invalid, simply because the hole have not formed yet in such far region.
+%A similar conclusion can be obtained 
+
+The adiabaticity is also examined from the spatial distribution of $\alpha$ in Fig. \ref{fig.adiabatic}(b), where we compare the value calculated from the definition Eq. (\ref{eq.alpnew}) and the adiabatic current relation Eq. (\ref{eq.adia_relation}). 
+In the source region near the equator
+$s=0$, the $\alpha$  
+%from the two method does not match, and both 
+quickly rises to large values, indicating that the violation of the adiabatic approximation.
+In the broad region of the wave propagation $s>0$, 
+the $\alpha$ values 
+%agree well 
+from the two methods
+show good agreement, 
+%with each other, 
+which means that the adiabatic approximation is effective.
+In the far region over $s\simeq4000c/\omega_{pe}$ where the  $\alpha$  goes to high values, the adiabaticity is also invalid, simply because the holes have not formed yet near the far outer boundary. 
+%in such far region.
 %Eq. (\ref{eq.adia_relation}), as shown in Fig. \ref{fig.adiabatic}(b). 
 %The evolution of $\alpha$ indicates a rapid variation of the phase space near the equator, which is related to the generation of the nonlinear chorus wave.
 %The results of the nonadiabtic region also agree with the previous PIC simulations \cite{tao2017a,tao2017b}.
