@@ -1,69 +1,47 @@
 %\section{Introduction}}
 %\label{sec:intro}
-%preface wave instabilitys with frequency chirping: fusion and magnetoshpere
-Wave-particle resonant interactions play an important role  in a wide range of wave instabilities
-%, among which the most representative branch is that occurs 
-with frequency chirping in fusion and magnetoshperic plasmas.
-In the fusion related plasmas, the frequency chirping often appears with the Alfv\'en wave instabilities \cite{chen2016,wang2018,wang2012,wang2012a} and energetic-particle-driven geodesic acoustic modes \cite{wang2013}.
+Wave-particle resonant interactions play an important role  in a wide range of wave instabilities with frequency chirping in fusion and magnetoshperic plasmas.
+In the fusion related plasmas, the frequency chirping often appears with the Alfv\'en wave instabilities \cite{chen2016,wang2018,wang2012,wang2012a,breizman2010,lilley2010} and energetic-particle-driven geodesic acoustic modes \cite{wang2013}.
 The wave chirping is usually accompanied by fast ion loss and strong radial transport, which is greatly concerned in the fusion studies.
-In the planetary magnetosphere, there exists the chorus wave, which is a peculiar electromagnetic emission with frequency sweeping in the whistler-mode range of frequencies \cite{helliwell1965whistlers,burtis_magnetospheric_1976,tsurutani_postmidnight_1974}. 
-The chirping behavior similar to the magnetospheric chorus has also been studied recently in the laboratory plasmas \cite{vancompernolle2015,saitoh2024}.
-The chorus waves  play a critical role in the electron acceleration   in the Van Allen radiation belts \cite{horne_wave_2005,thorne_rapid_2013,reeves_electron_2013} and the pulsating aurora  and diffuse auroral precipitation \cite{nishimura_identifying_2010,kasahara_pulsating_2018,thorne_scattering_2010}.
-The chorus emission is also related to 
- %which have received a significant research interest, such as in 
- the studies of the superradiance in free-electron lasers \cite{zonca_nonlinear_2021, soto-chavez2012}.
+ Of particular interest in this work, 
+the chorus wave
+in the planetary magnetosphere
+is a peculiar electromagnetic emission with frequency sweeping in the whistler-mode range of frequencies \cite{helliwell1965whistlers,burtis_magnetospheric_1976,tsurutani_postmidnight_1974}. 
+The  magnetospheric chorus  plays an important role in the electron acceleration   in the Van Allen radiation belts \cite{horne_wave_2005,thorne_rapid_2013,reeves_electron_2013} and the pulsating aurora  and diffuse auroral precipitation \cite{nishimura_identifying_2010,kasahara_pulsating_2018,thorne_scattering_2010}.
+The chorus emission is also related to  the studies of the superradiance in free-electron lasers \cite{zonca_nonlinear_2021, soto-chavez2012}.
+Recently,
+the chirping behavior similar to chorus waves has  been demonstrated in the laboratory plasmas \cite{vancompernolle2015,saitoh2024}.
 
-%1. The wave particle interaction as pendulum Hamiltonain Albert
-The physics of chorus waves in essence are the nonlinear wave-particle interactions 
-%\cite{oneil1971,oneil1972}
- between the resonant trapped electrons and the whistler waves \cite{omura_theory_2008, an2019}.
-The Hamiltonian treatment of a particle nearly resonant with a monochromatic whistler wave in the inhomogeneous magnetic field has been extensively studied \cite{albert1993,albert2021}.
-The particle dynamics can be described by a modified pendulum Hamiltonian, where the trapped particles feel both the wave restoring force and the background drag force related to the frequency variation and magnetic field gradient \cite{zheng2024,tao_trap-release-amplify_2021}.
-
-%What is different for the chirping wave interaction, and what changes
-It is worth noting that the parameters in the Hamiltonian are changing as the frequency varying together with the inhomogeneous magnetic field.
-Similar to the pendulum system, if the variation of the parameters is slow compared to the trapped particle's bounce motion, then the system is adiabatic, and there exists an adiabatic invariant associated with the bounce motion.
-%adiabaitic: the definiation and judge know the adiabaticity is of imporatant to understand and simplify the question
-%argument for the interaction regime and adiabatic, it should not be adiabatic: tao and Bierwage
-However, recent studies suggest that in the case of the chorus frequency chirping phenomenon, the nonlinear chirping timescale $\tau_{nl}$ is comparable to the bounce period $\tau_{b}$. 
-Consequently, the interaction becomes nonadiabatic \cite{tao2017a,tao2017b}.
-
-Yet, assessing whether the resonant particles undergo adiabatic motion solely based on a comparison between the chirping and bounce scales is overly simplistic.
-Firstly, the adiabatic invariant governing the resonant interaction of trapped particles with chirping chorus waves in the magnetosphere has never been clearly defined, let alone violated.
-Furthermore, during the triggering and propagation of chorus waves, particles undergo distinct phases of wave-particle interactions depending on their location and the stages of interaction.
-In the early chirping phase \cite{bierwage2021}, adiabatic bounce motion is invalid, as the trapped state has yet to be established.
-Moreover, in the wave triggering region, particle release \cite{tao_trap-release-amplify_2021} often accompanies fast wave variations, constituting a nonadiabatic process.
-Nevertheless, there also exists stable trapped behavior \cite{zheng2024} in the propagation region of the chorus away from the magnetic equator, where adiabaticity is poorly understood in current research. 
-Establishing stringent criteria for particle adiabaticity is paramount.
-Not only does it aid in identifying key interaction stages and understanding dynamic shifts between them, but it also furnishes additional approximations to simplify and solve chorus evolution in the propagation region.
-
-In our previous work, we developed a novel Hamiltonian theory \cite{zheng2024} specifically tailored to address frequency chirping chorus waves.
-By utilizing the local resonance frame of reference, we derived a reduced Hamiltonian that accurately depicts the interaction between energetic particles and the slowly varying envelope of the waves in the magnetosphere.
-Focusing specifically on the onset stage of chirping, we developed a corresponding  $\delta f$ Vlasov simulation method and successfully replicated the generation of chirping chorus waves.
-Recognizing the critical role of the background magnetic field in the chorus wave-particle interaction process \cite{wu2023,wu_controlling_2020}, our simulation incorporated a realistic Earth dipole field configuration.
-The chirping rate and amplitude observed in our simulation closely match satellite observations \cite{cully_observational_2011}. 
-Utilizing this simulated self-consistent slowly varying wave envelope, we can easily conduct test particle simulations, providing a unique perspective distinct from conventional methods.
-While test particle methods \cite{huanghua_test_ptc,omura_test_ptc,tao_test_ptc} offer an intuitive approach to studying particle dynamics within a wave field, conventional studies often analyze particle dynamics within the laboratory reference frame. In this frame, the Hamiltonian incorporates  a rapidly varying phase term to model the wave-particle interaction, which complicates the assessment of adiabaticity. However, by reconsidering the interaction within a reference frame perfectly synchronized with the resonance—moving in-time with the chirping wave that traps the resonant particle—the fast-varying scale is mitigated. Consequently, a particle can be considered adiabatic as long as it remains trapped  \cite{CARY1989287}.
-
-In this Letter, we  explore the dynamics of resonant electrons and the evolution of whistler-mode chorus waves by test particle simulations.
-We show that the adiabatic description is valid if one tracks the dynamics in the frame of reference moving with the local resonance.
-We have derived an analytic current expression and discussed the adiabatic regime in the global domain by showing the wave chirping behavior with respect to the inhomogeneity parameter $\alpha$.
-The adiabatic approximation and the reduced current expression reveal the underlying physics for the wave chirping.
+The physics of chorus waves has been extensively studied as the nonlinear resonant wave-particle interactions 
+% between the resonant trapped electrons and the unstable whistler waves from the electron temperature anisotropy
+ \cite{omura_theory_2008, an2019, nunn_numerical_1990,tao_theoretical_2020,sudan_theory_1971,vomvoridis_nonlinear_1980,dawson1983,zheng2024,zonca_theoretical_2021}. % The Hamiltonian treatment of a particle nearly resonant with a monochromatic whistler wave in the inhomogeneous magnetic field has been extensively studied \cite{albert1993,albert2021}.
+% The particle dynamics can be described by a modified pendulum Hamiltonian, where the trapped particles feel both the wave restoring force and the background drag force related to the frequency variation and magnetic field gradient \cite{zheng2024,tao_trap-release-amplify_2021}.
+% If parameter changes are slow compared to the particle bounce motion, the system is adiabatic with an associated adiabatic invariant, similar to a pendulum system. 
+% However,  recent studies  based on chirping and bounce scales suggest that  in  frequency chirping  chorus waves, the nonlinear chirping timescale is comparable to the bounce period, resulting in nonadiabatic interaction  \cite{tao2017a,tao2017b} and the  fast wave variations in triggering regions result in nonadiabatic processes 
+% \cite{tao_trap-release-amplify_2021}. 
+% Additionally,  the assumption of chirping adiabaticity  has been recently shown not to be valid, especially in the early phases of chirping  \cite{bierwage2021}.
+% During chorus wave triggering and propagation, particle interactions vary, invalidating adiabatic motion in early chirping phases. 
+% Despite this, stable trapped behavior exists away from the equator, where adiabaticity is poorly understood. 
+% On the other hand, the adiabatic invariant governing resonant interaction with frequency chirping chorus waves remains undefined. 
+% Establishing strict criteria for particle adiabaticity is crucial, aiding in identifying interaction stages and simplifying chorus evolution analysis.
+Traditionally, the behavior of systems during particle bounce motion has been likened to an adiabatic process, drawing parallels with the  swing of a pendulum governed by an associated adiabatic invariant. However, recent research has catalyzed a significant shift in this understanding. 
+Studies into the intricate interplay between chirping and bounce scales have uncovered a notable departure from adiabaticity in frequency chirping chorus waves
+ \cite{tao2017a,tao2017b}. In this scenario, the nonlinear chirping timescale closely aligns with the bounce period, instigating nonadiabatic interactions.
+  Furthermore, the rapid fluctuations in wave characteristics within triggering regions have emerged as pivotal factors driving nonadiabatic processes
+\cite{tao_trap-release-amplify_2021}. 
+Recent findings also challenge the assumption of chirping adiabaticity, especially in the early phases of chirping
+\cite{bierwage2021}. 
+This evolving comprehension challenges established assumptions, highlighting the subtle and complex nature of wave-particle interactions in the Earth's magnetosphere. 
+As chorus waves excite and propagate, particle interactions dynamically shift, invalidating adiabatic motion during these initial stages. Despite this complexity, stable trapped behavior persists away from the equator, where adiabaticity remains poorly understood. Meanwhile, the adiabatic invariant governing resonant interaction with frequency chirping chorus waves remains elusive. Establishing the  criteria for particle adiabaticity is crucial, facilitating the identification of interaction stages and streamlining the analysis of chorus wave evolution.
 
 
-%In this work, we examine the adiabaticity by the test particle simulation and derive the nonlinear current with adiabatic approximation for 
-%the magnetospheric chorus.
-%We introduce a canonical transformation that shifts the static frame to a time-independent reference frame which follows with the real time chirping wave in the Vlasov simulation.
-%For the interaction of chorus waves and energetic electrons,
-%we solve the Hamilton's equations and calculate the adiabatic invariant from the test particle simulations.
-%The energetic electrons move opposite to the motion of the chorus wave packet through several distinct regions with different physical properties.
-%We show that the adiabaticity can be completely different in the different reference frames and in the different regions  along the Earth's dipole magnetic fields. 
-%In the resonance frame,  the adiabatic invariant is preserved in the most of the  downstream region, where the   chorus waves  propagate with frequency chirping and grow in amplitudes.
-%As the energetic electrons approach the equator
-%where the chorus waves are triggered with initial small amplitudes,
-%the adiabaticity  is no longer valid in the equator and the upstream region  due to the particle releasing.
-%From the adiabatic invariant, we further obtain a reduced  form of the energetic trapped particle current.
-%We verify the adiabatic approximation from the nonlinear current calculated in the Vlasov simulation and show that the adiabatic regime is valid in the most of the wave propagation region, except in the source regions where the wave is generated from.
+Focusing on the chirping onset,  we  have  previously developed a Hamiltonian theory to investigate frequency chirping chorus waves within a local resonance frame \cite{zheng2024}  and devised a hybrid Eulerian–Lagrangian Vlasov simulation method that accurately reproduces chorus wave generation \cite{zheng2023b}. 
+Since  the background magnetic field inhomogeneity  plays a critical role  in frequency chirping chorus waves \cite{wu2023,wu_controlling_2020}, the Vlasov simulations use  realistic parameters of the magnetosphere and closely mirror the satellite observations \cite{zheng2024,zheng2023b}, facilitating unique test particle simulations. 
+In this work, our analysis of adiabaticity in magnetospheric chorus waves relies on test particle simulations to compute the adiabatic invariant, revealing variations in  adiabaticity of trapped particles across reference frames and spatial regions.  
+Unlike conventional approaches \cite{huanghua_test_ptc,omura_test_ptc,tao_test_ptc}, which analyze particle dynamics within a laboratory frame with rapidly varying phase terms, we synchronize interactions with the resonance frame in this study. This allowed for adiabatic considerations while particles remain trapped \cite{CARY1989287}. 
+Our simulation of resonant electron dynamics and chorus wave evolution affirm the validity of this adiabatic description. 
+Additionally, we derive an analytic current expression, providing insights into the underlying physics of wave chirping. 
+Finally, we validate our findings with the simplified model of energetic trapped particle current and the Vlasov simulation.
 
 %We organize our 
 %The paper is organized as follows. In section~\ref{sec:theory}, we review the Hamiltonian theory in the resonance reference frame. In section~\ref{sec:dis},  
